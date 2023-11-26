@@ -37,6 +37,10 @@ plt.ylabel("Salary")
 plt.show()
 
 # visualising the test set
+'''We are still using the X_train & regressor.predict(X_train) in plotting the line while 
+visualising the test set because the line depends on an equation derived by training the 
+model based on which it predict the values which remains the same, so change is not required.'''
+
 plt.scatter(X_test, y_test, color='red')
 plt.plot(X_train, regressor.predict(X_train), color='blue')
 plt.title("Salary VS Experience ( Test Set )")
@@ -45,19 +49,21 @@ plt.ylabel("Salary")
 plt.show()
 
 # Making a single prediction (for example the salary of an employee with 12 years of experience)
-#  Notice that the value of the feature (12 years) was input in a double pair of square brackets.
-#  That's because the "predict" method always expects a 2D array as the format of its inputs.
-#  And putting 12 into a double pair of square brackets makes the input exactly a 2D array
+'''Notice that the value of the feature (12 years) was input in a double pair of square 
+brackets.That's because the "predict" method always expects a 2D array as the format of 
+its inputs.And putting 12 into a double pair of square brackets makes the input exactly 
+a 2D array.12 -> Scalar, [12] -> 1-D Array, [[12]] -> 2-D Array.'''
+
 print("\nthe salary of an employee with 12 years of experience: ", regressor.predict([[12]]))
 
-# Getting the final linear regression equation with the values of the coefficients.
-# Linear Equation -> y = b0 + b1 * x1
-# Slope ( b1 ), alias 'coefficient' ( coef_ )
-# y intercept ( b0 ), alias 'intercept' ( intercept_ )
+# Getting the Coef & intercept
+'''Getting the final linear regression equation with the values of the coefficients.
+Linear Equation -> y = b0 + b1 * x1, Slope ( b1 ), alias 'coefficient' ( coef_ )
+y intercept ( b0 ), alias 'intercept'( intercept_ ).'''
+
 print("Coefficient or coef ( alias slope ): ", regressor.coef_)
 print("intercept or y_intercept: ", regressor.intercept_)
 
-# Therefore, the equation of our simple linear regression model is:
-# Salary=9345.94×YearsExperience+26816.19
-# To get these coefficients we called the "coef_" and "intercept_" attributes from our regressor object.
-# Attributes in Python are different from methods and usually return a simple value or an array of values.
+'''Therefore, the equation of our simple linear regression model is:Salary=9345.94×YearsExperience+26816.19
+To get these coefficients we called the "coef_" and "intercept_" attributes from our regressor object.
+Attributes in Python are different from methods and usually return a simple value or an array of values.'''
