@@ -42,7 +42,8 @@ visualising the test set because the line depends on an equation derived by trai
 model based on which it predict the values which remains the same, so change is not required.'''
 
 plt.scatter(X_test, y_test, color='red')
-plt.plot(X_train, regressor.predict(X_train), color='blue')
+# plt.plot(X_train, regressor.predict(X_train), color='blue')
+plt.plot(X_test, y_pred, color='blue')
 plt.title("Salary VS Experience ( Test Set )")
 plt.xlabel("Years of Experience")
 plt.ylabel("Salary")
